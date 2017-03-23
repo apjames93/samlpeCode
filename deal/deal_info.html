@@ -1,0 +1,227 @@
+<md-content >
+  <h3 class="md-display-2">Deal</h3>
+  <div layout="row">
+    <div flex>
+          <table class="table table-bordered table-striped">
+            <thead>
+            <tr align="center">
+              <td>Index</td>
+              <td>Swing Index</td>
+              <td>Over Premium</td>
+              <td>Under Premium</td>
+              <td>Base Margin</td>
+              <td>Account Number</td>
+              <td>Premise Number</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr align="center">
+              <td>{{dealDetails[0].index_name}}</td>
+              <td>{{dealDetails[0].swing_index}}</td>
+              <td>{{dealDetails[0].over_premium}}</td>
+              <td>{{dealDetails[0].under_premium}}</td>
+              <td>{{dealDetails[0].base_margin}}</td>
+              <td>{{thisDeal[0].account_number}}</td>
+              <td>{{thisDeal[0].premise_number}}</td>
+            </tr>
+            </tbody>
+          </table>
+    </div>
+  </div>
+  <div layout="row">
+    <div flex>
+      <div id="table-wrapper">
+        <div id="table-scroll">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr align="center">
+                <td>Actual volume</td>
+                <td>Contract volume</td>
+                <td>Trigger volume</td>
+                <td>Risk type</td>
+                <td>Pipline</td>
+              </tr>
+            </thead>
+            <tbody ng-repeat="data in volume">
+              <tr align="center">
+                <td>{{data.actual_volume}}</td>
+               <td>{{data.contract_volume}}</td>
+               <td>{{data.trigger_volume}}</td>
+               <td>{{data.risk_types}}</td>
+               <td>{{data.pipeline_name}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</md-content>
+
+
+
+
+
+
+
+
+
+
+<!--<table class="table table-bordered table-striped">-->
+      <!--<tr align="center" height>-->
+        <!--<th >Index:</th>-->
+        <!--<td>{{dealDetails[0].index_name}}</td>-->
+      <!--</tr>-->
+      <!--<tr align="center">-->
+        <!--<th>Swing Index:</th>-->
+        <!--<td>{{dealDetails[0].swing_index}}</td>-->
+      <!--</tr>-->
+      <!--<tr align="center">-->
+        <!--<th>Over Premium:</th>-->
+        <!--<td>{{dealDetails[0].over_premium}}</td>-->
+      <!--</tr>-->
+      <!--<tr align="center">-->
+        <!--<th>Under Premium:</th>-->
+        <!--<td>{{dealDetails[0].under_premium}}</td>-->
+      <!--</tr>-->
+      <!--<tr align="center">-->
+        <!--<th>Base Margin:</th>-->
+        <!--<td>{{dealDetails[0].base_margin}}</td>-->
+      <!--</tr>-->
+      <!--<tr align="center">-->
+        <!--<th>Transport Cost:</th>-->
+        <!--<td>{{dealDetails[0].transport_cost}}</td>-->
+      <!--</tr>-->
+      <!--<tr align="center">-->
+        <!--<th>Fuel Percentage:</th>-->
+        <!--<td>{{dealDetails[0].fuel_percentage}}</td>-->
+      <!--</tr>-->
+      <!--<tr align="center">-->
+        <!--<th>Account Number:</th>-->
+        <!--<td>{{dealDetails[0].account_number}}</td>-->
+      <!--</tr>-->
+      <!--<tr align="center">-->
+        <!--<th>Premise Number:</th>-->
+        <!--<td>{{dealDetails[0].premise_number}}</td>-->
+      <!--</tr>-->
+    <!--</table>-->
+
+
+
+
+
+
+    <div ng-cloak style="width: 95%;">
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Deal Details">
+        <md-content class="md-padding">
+          <h1 class="md-display-2"></h1>
+            <div layout="row" flex>
+
+              <div flex class="deal-details">
+                <b>Index:</b> {{dealDetails[0].index_name}}
+              </div>
+              <div flex class="deal-details">
+                <b>Swing Index:</b> {{dealDetails[0].swing_index}}
+              </div>
+              <div flex class="deal-details">
+                <b>Over Premium:</b> {{dealDetails[0].over_premium}}
+              </div>
+              <div flex class="deal-details">
+                <b>Under Premium:</b> {{dealDetails[0].under_premium}}
+              </div>
+              <div flex class="deal-details">
+                <b>Base Margin:</b> {{dealDetails[0].base_margin}}
+              </div>
+              <div flex class="deal-details">
+                <b>Transport Cost:</b> {{dealDetails[0].transport_cost}}
+              </div>
+              <div flex class="deal-details">
+                <b>Fuel Percentage:</b> {{dealDetails[0].fuel_percentage}}
+              </div>
+              <div flex class="deal-details">
+                <b>Account Number:</b> {{dealDetails[0].account_number}}
+              </div>
+              <div flex class="deal-details">
+                <b>Premise Number:</b> {{dealDetails[0].premise_number}}
+              </div>
+            </div>
+        </md-content>
+      </md-tab>
+      <md-tab label="Volume">
+        <md-content class="md-padding">
+          <h1 class="md-display-2"></h1>
+          <div layout="row">
+            <div flex>
+              <div id="table-wrapper">
+                <div id="table-scroll">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr align="center">
+                      <td>Actual volume</td>
+                      <td>Contract volume</td>
+                      <td>Trigger volume</td>
+                      <td>Risk type</td>
+                      <td>Pipline</td>
+                    </tr>
+                    </thead>
+                    <tbody ng-repeat="data in volume">
+                    <tr align="center">
+                      <td>{{data.actual_volume}}</td>
+                      <td>{{data.contract_volume}}</td>
+                      <td>{{data.trigger_volume}}</td>
+                      <td>{{data.risk_types}}</td>
+                      <td>{{data.pipeline_name}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
+
+
+
+<md-tab label="Volume">
+  <md-content class="md-padding">
+    <h1 class="md-display-2"></h1>
+    <div layout="row">
+      <div flex>
+        <div id="table-wrapper">
+          <div id="table-scroll">
+            <table class="table table-bordered table-striped">
+              <thead>
+              <tr align="center">
+                <td>Actual volume</td>
+                <td>Contract volume</td>
+                <td>Trigger volume</td>
+                <td>Risk type</td>
+                <td>Pipline</td>
+              </tr>
+              </thead>
+              <tbody ng-repeat="data in volume">
+              <tr align="center">
+                <td>{{data.actual_volume}}</td>
+                <td>{{data.contract_volume}}</td>
+                <td>{{data.trigger_volume}}</td>
+                <td>{{data.risk_types}}</td>
+                <td>{{data.pipeline_name}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </md-content>
+</md-tab>
+</md-tabs>
+</md-content>
+</div>
+form

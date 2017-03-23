@@ -1,0 +1,533 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+<body ng-app="app" ng-controller="primary" style = "font-family: 'Arial';
+      font-size: 14px;
+      line-height: 1.2;
+      color: #333;
+      font-weight: 500;"
+      ng-cloak>
+      <h2 layout="row" layout-align="center center"
+        style="text-align: center;
+              margin-top: 1em;
+              margin-bottom: .1em;">
+        <b>DELEGATION AGREEMENT</b>
+      </h2>
+      <div style="border: 1px solid black;
+                              margin-left: 1em;
+                              margin-right: 1em;
+                              padding: .5em">
+        <div layout="row" >
+          <h3 style="margin: 0px; padding-left: 10px; padding-top: 5px;">
+            <b>BLACK HILLS ENERGY RESIDENTIAL &amp; COMMERCIAL CHOICE GAS PROGRAM</b>
+          </h3>
+        </div>
+        <div layout="row" >
+            <div flex="25">
+            <h3 style="margin: 0px;
+                      width: 200px;
+                      padding-left: 10px;">
+              <b>Check Appropriate box: </b>
+            </h3>
+        </div>
+        <div flex="25">
+          <label>
+                 <input type="checkbox" ng-checked="nebraskaResidentialProgram()"
+                         ng-model="nebraskaResidential"/>
+                 Nebraska Residential
+          </label>
+          <br>
+          <label>
+                 <input type="checkbox" ng-checked="nebraskaCommercialProgram()"
+                         ng-model="nebraskaCommercial"/>
+                 Nebraska Commercial
+          </label>
+          <br>
+          <label>
+                 <input type="checkbox" ng-checked="wyomingResidentialProgram()"
+                         ng-model="wyomingResidential"/>
+                 Wyoming Residential
+          </label>
+          <br>
+          <label>
+                 <input type="checkbox" ng-checked="wyomingCommercialProgram()"
+                         ng-model="wyomingCommercial"/>
+                 Wyoming Commercial
+          </label>
+        </div>
+
+        <div flex="15">
+          <label>
+                 <input type="checkbox" ng-checked="nebraskaResidentialOneYear"/>
+                 One-Year
+          </label>
+          <br>
+          <label>
+                 <input type="checkbox" ng-checked="nebraskaCommercialOneYear"/>
+                 One-Year
+          </label>
+          <br>
+          <label>
+                 <input type="checkbox" ng-checked="wyomingResidentialOneYear"/>
+                 One-Year
+          </label>
+          <br>
+          <label>
+                 <input type="checkbox" ng-checked="wyomingCommercialOneYear"/>
+                 One-Year
+          </label>
+        </div>
+        <div flex="15">
+          <label>
+                 <input type="checkbox" ng-checked="nebraskaResidentialTwoYear"/>
+                 Two-Year
+          </label>
+          <br>
+          <label>
+                 <input type="checkbox" ng-checked="nebraskaCommercialTwoYear"/>
+                 Two-Year
+          </label>
+          <br>
+          <label>
+                 <input type="checkbox" ng-checked="wyomingResidentialTwoYear"/>
+                 Two-Year
+          </label>
+          <br>
+          <label>
+                 <input type="checkbox" ng-checked="wyomingCommercialTwoYear"/>
+                 Two-Year
+          </label>
+        </div>
+        <div flex="15">
+          <label>
+                 <input type="checkbox" ng-hide="true"/>
+                 <p></p>
+          </label>
+          <br>
+          <label>
+                 <input type="checkbox" ng-checked="nebraskaCommercialThreeYear"/>
+                 Three-Year
+          </label>
+          <label>
+                 <input type="checkbox" ng-hide="true"/>
+                 <p></p>
+          </label>
+          <label>
+                 <input type="checkbox" ng-checked="wyomingCommercialThreeYear"/>
+                 Three-Year
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div style="border: 1px solid black;
+                              margin-left: 1em;
+                              margin-right: 1em;
+                              margin-top: .5em;
+                              padding: .3em">
+      <div layout="row" >
+        <div flex-gt-sm="30">
+          <label>
+             <input type="checkbox" ng-checked="nebraskaAgriculturalProgram()" ng-model="nebraskaAgricultural"/>
+             <b>BLACK HILLS ENERGY NEBRASKA AGRICULTURAL CHOICE GAS PROGRAM</b>
+          </label>
+        </div>
+      </div>
+      <div layout="row" >
+        <div flex="25">
+          <b>Check Appropriate Supply Arrangement: </b>
+        </div>
+        <div flex="15">
+          <label>
+                 <input type="checkbox" ng-checked="nebraskaAgriculturalOneYear"/>
+                 One-Year
+          </label>
+        </div>
+        <div flex="15">
+          <label>
+                 <input type="checkbox" ng-checked="nebraskaAgriculturalTwoYear"/>
+                 Two-Year
+          </label>
+        </div>
+        <div flex="15">
+          <label>
+                 <input type="checkbox" ng-checked="nebraskaAgriculturalThreeYear"/>
+                 Three-Year
+          </label>
+        </div>
+      </div>
+    </div>
+    <div layout="row" style="padding: 5px;
+                margin-left: 1em;
+                margin-right: 1em;
+                margin-bottom: .2em">
+      <p>I <u style="text-decoration: underline;"> {{values.fullName}} </u> (Customer) hereby designate
+        <u>WoodRiver Energy LLC</u> (Contractor) to make a supplier and price option selection on my
+        behalf for the <u>{{values.programYears}}</u> (Program Year(s)) Choice Gas Program designated above.
+        This agreement covers the following account(s):</p>
+    </div>
+
+<div layout="row" style="width: 100%; padding: 5px; flex-wrap: wrap;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: .2em"  flex >
+    <div style="width:13%; padding-bottom:1em; "
+    ng-repeat="item in accountArray">
+    <div style= " width: 100% padding: .4em">
+      {{item.account}}
+    </div>
+    </div>
+  </div>
+
+    <div style="padding: 5px;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-bottom: .1em">
+      <p>This executed Delegation Agreement must be received by Black Hills Gas Distribution, LLC
+        d/b/a Black Hills Energy ("Black Hills Energy") as Choice Gas Program administrator
+        (Administrator) prior to the selection deadline for the applicable Choice Gas Program
+        (11:59 p.m. on [ last day of the applicable balloting period]). If the Customer submits
+        a valid Choice Gas selection prior to the Administrator receiving this Delegation Agreement,
+         the Delegation Agreement will be considered null and void.</p>
+      <p>By execution hereof, Contractor accepts its designation and appointment for the Customer and
+        agrees to act as Contractor for Customer in accordance with the terms hereof. Contractor acknowledges
+        and affirms that it is a supplier in compliance with any and all applicable statutes, rules,
+        and regulations of the governing authority and participating as a supplier in the Choice Gas
+        Program provided by Black Hills Energy to the Customer. Contractor shall clearly specify it
+        is acting within the scope of its authority on behalf of Customer in all actions taken in its
+        role of Contractor.</p>
+      <p>Customer and Contractor acknowledge that Black Hills Energy, its officers, agents, affiliates
+       and parent companies are third party beneficiaries to this Delegation Agreement and by execution
+       hereof, Customer and Contractor, individually and jointly agree to indemnify and hold Black Hills Energy,
+       its officers, agents, affiliates and parent companies harmless from any and all liabilities, losses, damages,
+        expenses and other obligations of any nature whatsoever including attorney fees incurred in defense of such
+        actions that Black Hills Energy, its officers, agents, affiliates and parent companies that
+        they may suffer either individually or collectively as a result of any and all claims,
+        demands, costs, attorney fees and judgments made against them resulting from their reliance
+        on this Delegation Agreement and/or the Contractor's actions, including but not limited to
+        actions taken by Black Hills Energy pursuant to Contractor's actions or inaction under this Agreement.</p>
+      <p>Customer agrees to select Contractor as its gas supplier under Black Hills Energy's
+        Choice Gas Program, and Customer hereby appoints Contractor to submit Customer's Black Hills
+        Energy Choice Gas selection in order to facilitate the parties' performance under this agreement.</p>
+      <p>The parties acknowledge that receipt by Administrator of an executed Delegation Agreement
+         transmitted by mail, facsimile, electronic delivery, or other recognized means of delivery,
+        shall constitute a valid enforceable agreement and shall legally bind the parties accordingly.
+        Once executed, it may not be revoked by the Customer.</p>
+      <p>This agreement expires at the end of the Program Year(s) stated above.</p>
+      <p>By signing this Agreement, Contractor represents and warrants that Contractor has provided a complete and true copy of this Delegation Agreement to
+        Customer. By signing this Agreement, Customer acknowledges receipt of a complete copy of this Delegation Agreement from Contractor.</p>
+    </div>
+    <div layout="row" style="padding: 5px;
+                                margin-left: 1em;
+                                margin-right: 1em;
+                                margin-bottom: .1em">
+    <div flex="50">
+      <div style="width:100%; border-bottom: 1px solid black;">
+        By: <span style="font-family: 'Great Vibes'; font-size: 2em;">{{values.signature.signature}}</span>
+        <br>{{values.signature.geoLoc.ip}}  {{values.signature.geoLoc.country_name}}  {{values.signature.geoLoc.region_code}}
+
+      </div>
+      <p layout-align="center center">
+          (Customer Signature)
+      </p>
+      <div style="width:100%; border-bottom: 1px solid black;">
+        name: {{values.fullName}}
+      </div>
+      <p layout-align="center center">
+          (Customer Print Name)
+      </p>
+      <div style="width:100%; border-bottom: 1px solid black;">
+        Title:
+      </div>
+      <br>
+      <div style="width:100%; border-bottom: 1px solid black;">
+        Address: {{values.mailingAddress}} {{values.mailingeCsz}}
+      </div>
+      <br>
+      <div style="width:100%; border-bottom: 1px solid black; margin-top: 1em;">
+      </div>
+      <br>
+      <div style="width:100%; border-bottom: 1px solid black;">
+        Phone NO: {{values.phone}}
+      </div>
+      <br>
+      <div style="width:100%; border-bottom: 1px solid black;">
+        Date: {{date | date:'yyyy-MM-dd'}}
+      </div>
+    </div>
+    <br>
+    <div flex="50" style="padding-left: 20px;">
+      <div style="width:100%; border-bottom: 1px solid black;">
+        By: <img src="https://d1bu3kyhnr9e8d.cloudfront.net/assets/woodriver_signature.jpg" alt="Alec Peter" height="45" width="170" style="font-family: 'Great Vibes'; font-size: 2em;">
+      </div>
+      <p layout-align="center center">
+          (Contractor Signature)
+      </p>
+      <div style="width:100%; border-bottom: 1px solid black;">
+        name: {{values.contractorName}}
+      </div>
+      <p layout-align="center center">
+          (Contractor Print Name)
+      </p>
+      <div style="width:100%; border-bottom: 1px solid black;">
+        Title: Choice Program Administrator
+      </div>
+    </div>
+  </div><br><br><br><br>
+<div ng-hide="receipt" ng-init="showReceipt()">
+  <div style="border: 1px solid black;
+                            margin-left: 1em;
+                            margin-right: 1em;
+                            margin-top: .5em;
+                            padding: .3em">
+
+
+        <div  style="padding: 5px;
+                                    margin-left: 1em;
+                                    margin-right: 1em;
+                                    margin-bottom: .1em">
+          <div layout="row">
+            <div layout="coulmn" style = "margin-right:1em; ">
+              WoodRiver Confirm #:
+            </div>
+            <div layout="coulmn">
+              {{values.confirmNumber}}
+            </div>
+          </div>
+
+          <div layout="row">
+            <div layout="coulmn" style = "margin-right:1em; ">
+            Account Info:
+            </div>
+            <div layout="coulmn">
+              {{values.mailingAddress}} {{values.mailingeCsz}}
+            </div>
+          </div>
+
+          <div layout="row">
+            <div layout="coulmn" style = "margin-right:1em; ">
+            Selection:
+            </div>
+            <div layout="coulmn">
+              {{values.progType}}
+            </div>
+          </div>
+          <div layout="row">
+            <div layout="coulmn" style = "margin-right:1em;">
+            # of Years:
+            </div>
+            <div layout="coulmn">
+              {{values.term}}
+            </div>
+          </div>
+          <div layout="row">
+            <div layout="coulmn" style = "margin-right:1em;">
+            price:
+            </div>
+            <div layout="coulmn">
+              {{values.price}}
+            </div>
+          </div>
+
+          <div layout="row" style="width: 100%; flex-wrap: wrap;"  flex >
+            <div layout="coulmn" style = "margin-right:1em;">
+            Black Hills Account #:
+            </div>
+              <div style="width:10%; padding-bottom:1em; "
+              ng-repeat="item in accountArray">
+              <div style= " width: 100%">
+                {{item.account}}
+              </div>
+              </div>
+            </div>
+          </div>
+          <div layout="row" style="padding: 5px;
+                                      margin-left: 1em;
+                                      margin-right: 1em;
+                                      margin-bottom: .1em">
+            <div flex="25">
+              <p>Terms and Conditions :</p>
+            </div>
+            <div flex="75">
+                <p>{{values.legal}} </p>
+            </div>
+          </div>
+      <div layout="row" style="padding-left: 44px;">
+        <img src ="http://www.iowarestaurantresources.com/images/allied-logos/161.jpg" alt="WoodRiver Energy LLC" height="40">
+      </div>
+    </div>
+
+  </div>
+
+<div ng-hide="note" ng-init="showNote()">
+  <div style="border: 1px solid black;
+                            margin-left: 1em;
+                            margin-right: 1em;
+                            margin-top: .5em;
+                            padding: .3em">
+
+  <div flex="25">
+    <p>{{values.fullName}} account note:</p>
+  </div>
+  <div flex="75">
+      <p>{{values.note}} </p>
+  </div>
+  <div layout="row" style="padding-left: 44px;">
+    <img src ="http://www.iowarestaurantresources.com/images/allied-logos/161.jpg" alt="WoodRiver Energy LLC" height="40">
+  </div>
+
+  </div>
+</div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <script type="text/javascript">
+    angular.module('app', ['ngMaterial'])
+      .controller('primary', function($scope, $window) {
+
+      $scope.date = new Date();
+      $scope.values = document.values;
+
+
+      var string = $scope.values.account + ',';
+      var string = 'wasd' + ',';
+
+      $scope.accountArray = [];
+
+      if (string.indexOf(',')) {
+        var result = string.split(',');
+        result.forEach(function(element) {
+          $scope.accountArray.push({account: element});
+        });
+      }else {
+        $scope.accountArray.push({account: string});
+      }
+
+      $scope.formatDate = function(date) {
+        return new Date(date).toDateString();
+      };
+
+      $scope.showReceipt = function() {
+        if ($scope.values.legal === null) {
+          $scope.receipt = true;
+        } else {
+          $scope.receipt = false;
+        }
+      };
+      $scope.showNote = function() {
+        if ($scope.values.note === 'nil') {
+          $scope.note = true;
+        } else {
+          $scope.note = false;
+        }
+      };
+
+      $scope.nebraskaResidentialProgram = function() {
+        var data = {
+          state: $scope.values.serviceState,
+          billClass: $scope.values.billClass,
+          term: $scope.values.term
+        };
+        if (data.state === 'NE' && data.billClass === 'RES') {
+          $scope.nebraskaResidential = true;
+          if (data.term === 1  && data.state === 'NE' && data.billClass === 'RES') {
+            $scope.nebraskaResidentialOneYear = true;
+          }
+          if (data.term === 2 && data.state === 'NE' && data.billClass === 'RES') {
+            $scope.nebraskaResidentialTwoYear = true;
+          }
+        }
+      };
+
+      $scope.nebraskaCommercialProgram = function() {
+        var data = {
+          state: $scope.values.serviceState,
+          billClass: $scope.values.billClass,
+          term: $scope.values.term
+        };
+        if (data.state === 'NE' && data.billClass === 'COM') {
+          $scope.nebraskaCommercial = true;
+          if (data.term === 1 && data.state === 'NE' && data.billClass === 'COM') {
+            $scope.nebraskaCommercialOneYear = true;
+          }
+          if (data.term === 2 && data.state === 'NE' && data.billClass === 'COM') {
+            $scope.nebraskaCommercialTwoYear = true;
+          }
+          if (data.term === 3 && data.state === 'NE' && data.billClass === 'COM') {
+            $scope.nebraskaCommercialThreeYear = true;
+          }
+        }
+
+      };
+
+      $scope.wyomingResidentialProgram = function() {
+        var data = {
+          state: $scope.values.serviceState,
+          billClass: $scope.values.billClass,
+          term: $scope.values.term
+        };
+        if (data.state === 'WY' && data.billClass === 'RES') {
+          $scope.wyomingResidential = true;
+          if (data.term === 1 && data.state === 'WY' && data.billClass === 'RES') {
+            $scope.wyomingResidentialOneYear = true;
+          }
+          if (data.term === 2 && data.state === 'WY' && data.billClass === 'RES') {
+            $scope.wyomingResidentialTwoYear = true;
+          }
+        }
+
+      };
+
+      $scope.wyomingCommercialProgram = function() {
+        var data = {
+          state: $scope.values.serviceState,
+          billClass: $scope.values.billClass,
+          term: $scope.values.term
+        };
+        if (data.state === 'WY' && data.billClass === 'COM') {
+          $scope.wyomingCommercial = true;
+          if (data.term === 1 && data.state === 'WY' && data.billClass === 'COM') {
+            $scope.wyomingCommercialOneYear = true;
+          }
+          if (data.term === 2 && data.state === 'WY' && data.billClass === 'COM') {
+            $scope.wyomingCommercialTwoYear = true;
+          }
+          if (data.term === 3 && data.state === 'WY' && data.billClass === 'COM') {
+            $scope.wyomingCommercialThreeYear = true;
+          }
+        }
+      };
+
+      $scope.nebraskaAgriculturalProgram = function() {
+        var data = {
+          state: $scope.values.serviceState,
+          billClass: $scope.values.billClass,
+          term: $scope.values.term
+        };
+        if (data.state === 'NE' && data.billClass === 'AGR') {
+          $scope.nebraskaAgricultural = true;
+          if (data.term === 1 && data.state === 'NE' && data.billClass === 'AGR') {
+            $scope.nebraskaAgriculturalOneYear = true;
+          }
+          if (data.term === 2 && data.state === 'NE' && data.billClass === 'AGR') {
+            $scope.nebraskaAgriculturalTwoYear = true;
+          }
+          if (data.term === 3 && data.state === 'NE' && data.billClass === 'AGR') {
+            $scope.nebraskaAgriculturalThreeYear = true;
+          }
+        }
+      };
+      $window.requestAnimationFrame(function() {
+        $scope.$apply(function() {
+          if (window.callPhantom) {
+            window.callPhantom();
+          }
+        });
+      });
+    });
+  </script>
+
+</body>

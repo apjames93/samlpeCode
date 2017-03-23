@@ -1,0 +1,227 @@
+<div layout="column" style="text-align:center; vertical-align: middle;">
+      <div layout="row" style="border-bottom: thin solid;" layout-align="center center">
+        <div>Deal Id</div>
+        <div>Pipeline Name</div>
+        <div>Location Name</div>
+        <div>Customer Id</div>
+        <div>Customer Name</div>
+        <div>Trade Date</div>
+        <div>Begin Date</div>
+        <div>End Date</div>
+        <div>Market</div>
+        <div>Daily Dth</div>
+      </div>
+
+        <div id="table-scroll">
+          <div infinite-scroll="dealData.nextPage()"
+              infinite-scroll-distance="1"
+              infinite-scroll-container='"#table-scroll"'>
+          <div layout="row" data-ng-repeat="item in dealData.items
+                      = (dealData.items | filter:searchDealsOne) |
+                     filter:searchDealsTwo |
+                       filter:searchDealsOne |
+                      filter:searchDealsTwo |
+                       filter: searchDealsThree |
+                       filter: searchDealsFour |  unique: 'deal_id' "
+          style="border-bottom: thin solid; margin-bottom: 1em; margin-top: 1em;">
+          <div ng-click="dealInfo(item.deal_id,item.customer_id, 0)">
+            <span style="color: #337ab7;">{{item.deal_id}}</span>
+          </div>
+          <div>{{item.pipeline_name}}</div>
+          <div>{{item.locations_name}}</div>
+          <div ng-click="dealInfo(item.deal_id, item.customer_id, 1)">
+            <span style="color: #337ab7;">{{item.customer_id}}</span>
+          </div>
+          <div>{{item.customer_name}}</div>
+          <div>{{item.trade_date}}</div>
+          <div>{{item.beg_date}}</div>
+          <div>{{item.end_date}}</div>
+          <div>{{item.market}}</div>
+          <div>{{item.daily_dth}}</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div layout="row" layout-align="center center">
+    <div layout="row" layout-align="center center" align="center" class='dealHead' >
+      <div class="dealTableHead">Deal Id</div>
+      <div class="dealTableHead">Pipeline Name</div>
+      <div class="dealTableHead">Location Name</div>
+      <div class="dealTableHead">Customer <br> Id</div>
+      <div class="dealTableHead">Customer <br> Name</div>
+      <div class="dealTableHead">Trade Date</div>
+      <div class="dealTableHead">Begin Date</div>
+      <div class="dealTableHead">End Date</div>
+      <div class="dealTableHead">Market</div>
+      <div class="dealTableHead">Daily Dth</div>
+    </div>
+  </div>
+<div id="table-scroll">
+  <div infinite-scroll="dealData.nextPage()"
+      infinite-scroll-distance="1"
+      infinite-scroll-container='"#table-scroll"'>
+  <div layout="row" layout-align="center center" data-ng-repeat="item in dealData.items
+     = (dealData.items | filter:searchDealsOne | unique: 'deal_id') |
+     filter:searchDealsTwo |
+     filter:searchDealsOne |
+     filter:searchDealsTwo |
+     filter: searchDealsThree |
+     filter: searchDealsFour |  unique: 'deal_id' ">
+      <div layout="row" layout-align="center center" class='dealHead' >
+        <div class="dealTable">{{item.deal_id}}</div>
+        <div class="dealTable">{{item.pipeline_name}}</div>
+        <div class="dealTable">{{item.locations_name}}</div>
+        <div class="dealTable">{{item.customer_id}}</div>
+        <div class="dealTable">{{item.customer_name}}</div>
+        <div class="dealTable">{{item.trade_date}}</div>
+        <div class="dealTable">{{item.beg_date}}</div>
+        <div class="dealTable">{{item.end_date}}</div>
+        <div class="dealTable">{{item.market}}</div>
+        <div class="dealTable">{{item.daily_dth}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div>
+  <span style="margin-right: .5em; font-weight: 800">Customer Id:</span>
+            {{customerData[0].id}}
+</div>
+        <div><span style="margin-right: .5em; font-weight: 800">Name:</span>
+          {{customerData[0].customerName}}
+        </div>
+        <div><span style="margin-right: .5em; font-weight: 800">Dealmaker:</span>
+          {{customerData[0].dealmakerName}}
+        </div>
+        <div><span style="margin-right: .5em; font-weight: 800">Named Insured:</span>
+          {{customerData[0].namedInsured}}
+        </div>
+        <div><span style="margin-right: .5em; font-weight: 800">ACH Account:</span>
+          {{customerData[0].achAccount}}
+        </div>
+        <div><span style="margin-right: .5em; font-weight: 800">ACH Routing:</span>
+          {{customerData[0].achRouting}}
+        </div>
+        <div><span style="margin-right: .5em; font-weight: 800">Group Id:</span>
+          {{customerData[0].groupId}}
+
+        <div><span style="margin-right: .5em; font-weight: 800">Group Fee:</span>
+          {{customerData[0].groupFee}}
+        </div>
+        <div><span style="margin-right: .5em; font-weight: 800">Aggregate:</span>
+          {{customerData[0].aggregate}}
+        </div>
+        <div><span style="margin-right: .5em; font-weight: 800">Wholesale:</span>
+          {{customerData[0].wholesale}}
+        </div>
+        <div><span style="margin-right: .5em; font-weight: 800">Notes:</span>
+          {{customerData[0].note}}
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <md-content class="md-padding" layout-xs="row" layout="row">
+               <div flex-xs flex-gt-xs="50" layout="column" style="max-width: 100%;">
+                 <md-card>
+                   <md-card-title>
+                     <md-card-title-text>
+                     </md-card-title-text>
+                   </md-card-title>
+
+                   <md-card-content layout="row" layout-align="center center">
+                     <div layout="row" layout-align="center center">
+                       <div layout="row" layout-align="center center" align="center" class='dealHead' >
+                         <div class="dealTableHead">Deal Id</div>
+                         <div class="dealTableHead">Pipeline Name</div>
+                         <div class="dealTableHead">Location Name</div>
+                         <div class="dealTableHead">Customer <br> Id</div>
+                         <div class="dealTableHead">Customer <br> Name</div>
+                         <div class="dealTableHead">Trade Date</div>
+                         <div class="dealTableHead">Begin Date</div>
+                         <div class="dealTableHead">End Date</div>
+                         <div class="dealTableHead">Market</div>
+                         <div class="dealTableHead">Daily Dth</div>
+                       </div>
+                     </div>
+                       <div id="table-scroll">
+                       <div infinite-scroll="dealData.nextPage()"
+                           infinite-scroll-distance="1"
+                           infinite-scroll-container='"#table-scroll"'>
+                         <div layout="row" layout-align="center center" data-ng-repeat="item in dealData.items
+                        = (dealData.items | filter:searchDealsOne | unique: 'deal_id') |
+                        filter:searchDealsTwo | filter:searchDealsOne | filter:searchDealsTwo |
+                        filter: searchDealsThree | filter: searchDealsFour |  unique: 'deal_id' ">
+                           <div layout="row" layout-align="center center" class='dealHead' >
+                             <div class="dealTable" ng-click="dealInfo(item.deal_id,item.customer_id, 0)">
+                               <span style="color: #337ab7;">{{item.deal_id}}</span>
+                             </div>
+                             <div class="dealTable" >{{item.pipeline_name}}</div>
+                             <div class="dealTable">{{item.locations_name}}</div>
+                             <div class="dealTable" ng-click="dealInfo(item.deal_id, item.customer_id, 1)">
+                               <span style="color: #337ab7;">{{item.customer_id}}</span>
+                             </div>
+                             <div class="dealTable">{{item.customer_name}}</div>
+                             <div class="dealTable">{{item.trade_date}}</div>
+                             <div class="dealTable">{{item.beg_date}}</div>
+                             <div class="dealTable">{{item.end_date}}</div>
+                             <div class="dealTable">{{item.market}}</div>
+                             <div class="dealTable">{{item.daily_dth}}</div>
+                           </div>
+                         </div>
+                         <br><br><br><br><br><br><br><br><br>
+                         <div layout="row" layout-align="center center">
+                           {{dealData.message}}
+                         </div>
+                       </div>
+                     </div>
+                   </div>
+                </md-card-content>
+              </md-card>
+            </div>
+           </md-content>

@@ -1,0 +1,81 @@
+<admin-nav></admin-nav>
+
+<div layout="row" layout-sm="column">
+  <div flex="20" flex-sm="100" class="search">
+    <h3> Search </h3>
+    <div>
+      <md-input-container style="width: 100%;">
+        <md-checkbox class="green" ng-model="finalized"
+        > Finalized: {{ finalized }}</md-checkbox>
+      </md-input-container>
+    </div>
+    <div>
+      <md-input-container style="width: 100%;">
+        <label >Customers Name Document Type or Created Date</label>
+        <input ng-model="filterSearch" type="text">
+      </md-input-container>
+    </div>
+    <div>
+      <md-input-container style="width: 100%;" ng-hide="hide">
+        <label>Account Number Premise Number or Email </label>
+        <input ng-model="filterSearchTwo" type="text">
+      </md-input-container>
+    </div>
+  </div>
+
+  <div flex="80" flex-sm="100" class="search">
+    <div layout-align="center center">
+      <md-card style="height: 100%;">
+        <md-content>
+          <md-card-content style="width: 100%;">
+            <div grid-data grid-options="gridOptions" grid-actions="gridActions">
+              <table class="table">
+                <thead>
+                <tr>
+                  <th class="sortable">
+                    Document Type
+                  </th>
+                  <th class="sortable">
+                    Name
+                  </th>
+                  <th class="sortable">
+                    Date Created
+                  </th>
+                  <th class="sortable">
+                    AccountNumber
+                  </th>
+                  <th class="sortable">
+                    PremiseNumber
+                  </th>
+                  <th class="sortable">
+                    Email Address
+                  </th>
+                  <th class="sortable">
+                    Phone Number
+                  </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr grid-item
+                    ng-repeat="item in searchResults |filter: {finalized: finalized}  | filter: filterSearchTwo"
+                    style="width:auto">
+                  <td ng-if="finalized === true">
+                    <a target="_blank"
+                        href="https://s3-us-west-1.amazonaws.com/woodriver-documents/{{item.id}}/{{item.urlName}}.pdf">
+                      {{item.documentTemplate.name}} </a>
+                  </td>
+                  <td ng-bind="item.documentTemplate.name" ng-if="finalized === false"></td>
+                  <td ng-bind="item.name"></td>
+                  <td ng-bind="item.createdAt"></td>
+                  <td ng-bind="item.values.account"></td>
+                  <td ng-bind="item.values.premiseNum"></td>
+                  <td ng-bind="item.values.emailAddress"></td>
+                  <td><a href="tel: {{item.values.phone}}">{{item.values.phone}}</a></td>
+                </tr>
+                </tbody>
+              </table>
+          </md-card-content>
+      </md-card>
+      </md-content>
+    </div>
+  </div>

@@ -1,0 +1,99 @@
+<admin-nav></admin-nav>
+
+<div ng-hide="hideTable" layout-align="center center">
+  <div layout-xl="row">
+    <div flex-xl="25">
+
+      <md-card style="margin-top: 2em;">
+        <md-content class="md-padding">
+          <div layout="column" flex style="padding: 1em;">
+            <form name="searchTable">
+              <md-input-container class="md-block">
+                <label>Search for a field</label> <input md-maxlength="30" md-no-asterisk name="searchDealsOne"
+                  ng-model="searchDealsOne">
+              </md-input-container>
+            </form>
+          </div>
+          <div layout="row" layout-xl="column" flex="auto">
+
+            <div layout="column" style="padding: 1em; margin-right: 10em;">
+              <form name="searchDealId" ng-submit="lookUpByDealId(dealId, 0)">
+                <md-input-container>
+                  <label>Search by deal Id</label> <input ng-model="dealId" type="text" name="DealId">
+                  <md-input-container>
+                    <div><span style="color: red">{{error1}}</span></div>
+                    <div>
+                      <md-button style="width: 100%;" type="submit" class="md-raised md-primary">Get Deal Info
+                      </md-button>
+                    </div>
+              </form>
+            </div>
+
+            <div layout="column">
+              <form name="searchCustomerId" ng-submit="lookUpByCustomerId(customerId, 1)">
+                <md-input-container>
+                  <label>Search by Customer Id</label> <input ng-model="customerId" type="text" name="DealId">
+                  <md-input-container>
+                    <div><span style="color: red">{{error2}}</span></div>
+                    <div>
+                      <md-button style="width: 100%;" type="submit" class="md-raised md-primary">Get Customer Info
+                      </md-button>
+                    </div>
+              </form>
+            </div>
+          </div>
+        </md-content>
+      </md-card>
+
+    </div>
+    <div flex-xl="75" >
+      <div flex-xs flex-gt-xs="100" layout="column">
+        <md-card class="dealTableBox">
+          <md-card-title layout-align="center center">
+            <md-card-title-text>
+              <div layout="column" layout-align="center center">
+                <div infinite-scroll="dealData.nextPage()" infinite-scroll-distance="1"
+                    infinite-scroll-container='".ui-grid-viewport"'>
+                  <div layout="row" layout-align="center center" data-ng-repeat="item in dealData.items
+                    = (dealData.items | filter:searchDealsOne | unique: 'deal_id')" ng-hide="myValue"></div>
+                  <div style="width: 100%; height: 100%">
+                    <div ui-grid="gridOptionDeal" class="dealGrid"></div>
+                  </div>
+                </div>
+              </div>
+            </md-card-title-text>
+          </md-card-title>
+        </md-card>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div ng-show="hideDeal">
+  <div ng-cloak>
+    <md-content>
+      <md-tabs md-dynamic-height md-border-bottom md-selected="selectedTab">
+        <md-tab label="Deal Info">
+          <md-content class="md-padding">
+            <h1 class="md-headline">Deal Info</h1>
+            <deal-info data="thisDeal"></deal-info>
+          </md-content>
+        </md-tab>
+        <md-tab label="Customer Info">
+          <md-content class="md-padding">
+            <h1 class="md-headline">Customer Info</h1>
+            <customer-info data="thisCustomer"></customer-info>
+          </md-content>
+        </md-tab>
+        <md-tab label="Back to Search" ng-click="showSearch()">
+          <md-content class="md-padding"></md-content>
+        </md-tab>
+      </md-tabs>
+    </md-content>
+  </div>
+</div>
+
+
+
+<div ag-grid="gridOptions" class="ag-fresh" style="height: 100%;"></div>

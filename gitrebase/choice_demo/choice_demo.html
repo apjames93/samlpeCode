@@ -1,0 +1,153 @@
+<div class="container" ng-hide="letsGetStarted">
+  <h1 style="text-align: center; margin: 40px 0 0 0;">Let's get started!</h1>
+  <p style="text-align: center; margin: 10px 0 40px 0; font-style: italic;">
+    It only takes <b>three</b> easy steps to sign up with WoodRiver! <br> first step is to enter either a <b>Black Hills
+    Account Number</b> or <b>Premise Number</b> below </p>
+</div>
+<div class="container" ng-hide="stepTwo">
+  <h1 style="text-align: center; margin: 40px 0 0 0;">Review Information</h1>
+  <p style="text-align: center; margin: px 0 5px 0; font-style: italic;">
+  <ol>
+    <li>
+      Look over the information below to make sure we found the right account. Make sure your <b>phone number</b>, <b>email</b>,
+      <b>first</b> and <b>last name</b> are correct
+    </li>
+    <li>
+      We will <b>send you a copy of the contract to the email you enter here</b>.
+    </li>
+    <li>
+      Feel free to add any additional information we should know in the note section.
+    </li>
+    <li>
+      When you press the view document button you will go to a preview screen to look over the delegation agreement.
+    </li>
+    <li>
+      <b>All fields except the additional note field are required to go to the next step.</b>
+    </li>
+  </ol>
+  </p>
+</div>
+
+<md-tabs md-selected="selectedIndex" class="no-tab-panel" md-dynamic-height>
+  <!--Welcome -->
+  <md-tab label="0">
+    <div layout="column" layout-align="center center">
+      <div style="max-width: 500px; padding: 40px; background: white; border: 1px solid lightgrey; border-radius: 4px;">
+        <p class="text-align-center">Please enter either your <b>Black Hills Account Number</b> or <b>Premise Number</b>.
+        </p><br>
+        <div ng-hide="errorMessage">
+          <p style="color : red;
+          text-align: center;">
+            We couldn't find your account with that information <br> please make sure you entered in the right Black
+            Hills Energy Account Number or Premise Number <br>
+          </p>
+        </div>
+        <form name="choiceForm" ng-submit="choiceForm.$valid && lookupInfo()">
+          <md-input-container class="md-block">
+            <label>Black Hills Account Number</label> <input ng-model="accountNumber" type="number" name="number"
+              autofocus>
+          </md-input-container>
+          <md-input-container class="md-block">
+            <label>Premise Number</label> <input ng-model="premiseNumber" type="number" name="number" autofocus>
+          </md-input-container>
+          <div style="margin-top: 20px;" layout="row" layout-align="center center">
+            <md-button class="md-primary md-raised" type="submit">Lookup</md-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="1"></md-tab>
+  <md-tab label="2"></md-tab>
+  <md-tab label="3">
+    <md-content class="md-padding">
+      <div layout="column" layout-align="center center">
+        <div style="max-width: 650px; padding: 20px;
+        background: white; border: 1px solid lightgrey; border-radius: 4px;">
+          <h3 style=" margin: 0px;">Hi, {{sgCustomer.firstName | s: 'humanize'}} {{sgCustomer.lastName | s:
+            'humanize'}}</h3>
+          <div>
+            <form name="contactForm" ng-submit="getDocument(radioValue)">
+              <div layout="row" layout-xs="column" class="input-box">
+                <md-input-container flex>
+                  <label>First Name </label> <input ng-model="customerData.value.firstName" type="name" name="firstName"
+                    autofocus ng-value="customerData.value.firstName">
+                </md-input-container>
+                <md-input-container flex>
+                  <label>last Name </label> <input ng-model="customerData.value.lastName" type="name" name="lastName"
+                    autofocus ng-value="customerData.value.lastName">
+                </md-input-container>
+              </div>
+              <div layout="row" layout-xs="column"></div>
+              <div layout="row" layout-xs="column" class="input-box">
+                <md-input-container flex>
+                  <label>Service Address</label> <input ng-model="customerData.value.serviceAddress" type="address"
+                    name="serviceAddress" autofocus ng-value="customerData.value.serviceAddress">
+                </md-input-container>
+              </div>
+              <div layout="row" layout-xs="column" class="input-box">
+                <md-input-container flex>
+                  <label>Service City</label> <input ng-model="customerData.value.serviceCity" type="address"
+                    name="serviceCity" autofocus ng-value="customerData.value.serviceCity">
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Service serviceZip</label> <input ng-model="customerData.value.serviceZip" type="address"
+                    name="serviceZip" autofocus ng-value="customerData.value.serviceZip">
+                </md-input-container>
+              </div>
+              <div layout="row" layout-xs="column" class="input-box">
+                <md-input-container flex>
+                  <label>Phone Number</label> <input ng-model="customerData.value.phoneNumber" type="phoneNumber"
+                    name="telephone" autofocus ng-value="customerData.value.telephone">
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Email Address</label> <input ng-model="customerData.value.emailAddress" type="email"
+                    name="emailAddress" ng-value="customerData.value.emailAddress" required autofocus
+                    placeholder="Email to recive copy of the contract">
+                </md-input-container>
+              </div>
+              <div layout="row" layout-xs="column">
+                <p>
+                  In this section you will pick the amount of years you would like the Black Hills delegation agreement
+                  to run for. </p>
+              </div>
+              <div layout="row" layout-xs="column" style="height: 55px">
+                <md-input-container flex>
+                  <label>One year term</label> <input type="radio" name="term" ng-model="radioValue" value="1"
+                    required/>
+                </md-input-container>
+                <md-input-container flex>
+                  <label>Two year term</label> <input type="radio" name="term" ng-model="radioValue" value="2"
+                    required/>
+                </md-input-container>
+                <md-input-container flex ng-hide="showTerm">
+                  <label>Three year term</label> <input type="radio" name="term" ng-model="radioValue" value="3"
+                    required/>
+                </md-input-container>
+              </div>
+              <div layout="row">
+                <md-input-container>
+                  <label>Any additional information that we need to know? Please leave it here.</label> <textarea
+                    ng-model="customerData.value.note" md-maxlength="200" rows="3" md-select-on-focus
+                    style="height: 80px; width: 539px;">
+               </textarea>
+                </md-input-container>
+              </div>
+              <div layout="row" layout-xs="column" layout-align="center center">
+                <div style="margin-top: 5px;" layout="row" layout-align="center center">
+                  <md-button class="md-raised" ng-click="goToTabIndex(0)">Back</md-button>
+                  <md-button type="submit" class="md-primary md-raised">View Document</md-button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </md-content>
+  </md-tab>
+  <md-tab label="4">
+    <md-content class="md-padding">
+      <sign-document document-id="documentId"></sign-document>
+    </md-content>
+  </md-tab>
+</md-tabs>

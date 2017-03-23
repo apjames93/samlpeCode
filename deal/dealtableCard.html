@@ -1,0 +1,140 @@
+<div layout="row" layout-align="center center">
+  <md-content class="md-padding" layout-xs="row" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column" style="max-width: 100%;">
+      <md-card>
+        <md-card-content layout="row" layout-align="center center">
+
+
+          <md-card-content layout="row" layout-align="center center">
+            <div layout="column" style="text-align:center; vertical-align: middle;">
+              <div layout="row" style="border-bottom: thin solid;" layout-align="center center">
+                <div class="dealTableHead">Deal Id</div>
+                <div class="dealTableHead">Pipeline Name</div>
+                <div class="dealTableHead">Location Name</div>
+                <div class="dealTableHead">Customer <br> Id</div>
+                <div class="dealTableHead">Customer <br> Name</div>
+                <div class="dealTableHead">Trade Date</div>
+                <div class="dealTableHead">Begin Date</div>
+                <div class="dealTableHead">End Date</div>
+                <div class="dealTableHead">Market</div>
+                <div class="dealTableHead">Daily Dth</div>
+              </div>
+                <div id="scroll" style="text-align:center; vertical-align: middle;">
+                  <div infinite-scroll="dealData.nextPage()"
+                      infinite-scroll-distance="1"
+                      infinite-scroll-container='"#table-scroll"'>
+                    <div layout="row" layout-align="center center" data-ng-repeat="item in dealData.items
+                   = (dealData.items | filter:searchDealsOne | unique: 'deal_id') |
+                   filter:searchDealsTwo | filter:searchDealsOne | filter:searchDealsTwo |
+                   filter: searchDealsThree | filter: searchDealsFour |  unique: 'deal_id' ">
+                      <div layout="row" layout-align="center center" class='dealHead' >
+                        <div class="dealTable" ng-click="dealInfo(item.deal_id,item.customer_id, 0)">
+                          <span style="color: #337ab7;">{{item.deal_id}}</span>
+                        </div>
+                        <div class="dealTable" >{{item.pipeline_name}}</div>
+                        <div class="dealTable">{{item.locations_name}}</div>
+                        <div class="dealTable" ng-click="dealInfo(item.deal_id, item.customer_id, 1)">
+                          <span style="color: #337ab7;">{{item.customer_id}}</span>
+                        </div>
+                        <div class="dealTable">{{item.customer_name}}</div>
+                        <div class="dealTable">{{item.trade_date}}</div>
+                        <div class="dealTable">{{item.beg_date}}</div>
+                        <div class="dealTable">{{item.end_date}}</div>
+                        <div class="dealTable">{{item.market}}</div>
+                        <div class="dealTable">{{item.daily_dth}}</div>
+                      </div>
+                    </div>
+                    <br><br><br><br><br><br><br><br><br>
+                    <div layout="row" layout-align="center center">
+                      {{dealData.message}}
+                    </div>
+                  </div>
+            </div>
+          </div>
+       </md-card-content>
+
+
+
+        </md-card-content>
+      </md-card>
+  </md-content>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table style="width:100%">
+          <tr >
+            <th style="text-align: left;">Code</th>
+            <th style="text-align: left;">Rate</th>
+            <th style="text-align: left;">Term</th>
+            <th style="text-align: left;">Price</th>
+            <th style="text-align: left;">Cap</th>
+          </tr>
+          <tr>
+            <td align="left">31063</td>
+            <td align="left">Index (CIG)</td>
+            <td align="center">1</td>
+            <td align="left">$0.069</td>
+            <td align="left">$0.42</td>
+          </tr>
+          <tr>
+            <td align="left">30166</td>
+            <td align="left">Index with Cap</td>
+            <td align="center">1</td>
+            <td align="left">$0.079</td>
+            <td align="left">$0.399</td>
+          </tr>
+          <tr>
+            <td align="left">Call For Price</td>
+            <td align="left">Index with Cap</td>
+            <td align="center">2</td>
+            <td align="left">$0.079</td>
+            <td align="left">$0.398</td>
+          </tr>
+          <tr>
+            <td align="left">Call For Price</td>
+            <td align="left">Index with Cap</td>
+            <td align="center">3</td>
+            <td align="left">$0.079</td>
+          </tr>
+          </tr>
+          <tr>
+            <td align="left">31069</td>
+            <td align="left">Fixed Price</td>
+            <td align="center">1</td>
+            <td align="left">$0.390</td>
+          </tr>
+          <tr>
+            <td align="left">Call For Price</td>
+            <td align="left">Fixed Price</td>
+            <td align="center">2</td>
+            <td align="left">$0.370</td>
+          </tr>
+          <tr>
+            <td align="left">Call For Price</td>
+            <td align="left">Fixed Price</td>
+            <td align="center">3</td>
+            <td align="left">$0.360</td>
+          </tr>
+          <tr>
+            <td align="left">31072</td>
+            <td align="left">Managed</td>
+            <td align="center">1</td>
+            <td align="left">June-Sept</td>
+          </tr>
+        </table>

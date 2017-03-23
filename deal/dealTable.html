@@ -1,0 +1,590 @@
+<div class="container">
+  <div id="table-wrapper">
+    <div id="table-scroll">
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr align="center">
+          <td>Deal Id</td>
+          <td>Pipeline Name</td>
+          <td>Location Name</td>
+          <td>Customer Id</td>
+          <td>Customer Name</td>
+          <td>Trade Date</td>
+          <td>Begin Date</td>
+          <td>End Date</td>
+          <td>Market</td>
+          <td>Daily Dth</td>
+        </tr>
+        </thead>
+        <tbody>
+        <div infinite-scroll="dealData.nextPage()"
+            infinite-scroll-distance="1"
+            infinite-scroll-container='"#table-scroll"'>
+          <tr data-ng-repeat="item in dealData.items
+                      = (dealData.items | filter:searchDealsOne) |
+                     filter:searchDealsTwo |
+                       filter:searchDealsOne |
+                      filter:searchDealsTwo |
+                       filter: searchDealsThree |
+                       filter: searchDealsFour |  unique: 'deal_id' " align="center">
+            <td ng-click="dealInfo(item.deal_id,item.customer_id, 0)" layout-align="center center">
+              <span style="color: #337ab7;">{{item.deal_id}}</span>
+            </td>
+            <td>{{item.pipeline_name}}</td>
+            <td>{{item.locations_name}}</td>
+            <td ng-click="dealInfo(item.deal_id, item.customer_id, 1)">
+              <span style="color: #337ab7;">{{item.customer_id}}</span>
+            </td>
+            <td>{{item.customer_name}}</td>
+            <td>{{item.trade_date}}</td>
+            <td>{{item.beg_date}}</td>
+            <td>{{item.end_date}}</td>
+            <td>{{item.market}}</td>
+            <td>{{item.daily_dth}}</td>
+          </tr>
+        </div>
+        </tbody>
+      </table>
+      <br><br><br><br><br><br><br><br>
+      <div layout="row" layout-align="center center">
+        {{dealData.message}}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<div id="table-scroll" style="text-align:center; vertical-align: middle;">
+  <div infinite-scroll="dealData.nextPage()"
+      infinite-scroll-distance="1"
+      infinite-scroll-container='"#table-scroll"'>
+  <form id="form1">
+      <div class="div-table">
+             <div class="div-table-row" align="center">
+                <div class="div-table-col">Deal Id</div>
+                <div class="div-table-col">Pipeline Name</div>
+                <div class="div-table-col">Location Name</div>
+                <div class="div-table-col">Customer Id</div>
+                <div class="div-table-col">Customer Name</div>
+                <div class="div-table-col">Trade Date</div>
+                <div class="div-table-col">Begin Date</div>
+                <div class="div-table-col">End Date</div>
+                <div class="div-table-col">Market</div>
+                <div class="div-table-col">Daily Dth</div>
+             </div>
+            <div class="div-table-row" data-ng-repeat="item in dealData.items
+                        = (dealData.items | filter:searchDealsOne) |
+                       filter:searchDealsTwo |
+                         filter:searchDealsOne |
+                        filter:searchDealsTwo |
+                         filter: searchDealsThree |
+                         filter: searchDealsFour |  unique: 'deal_id' ">
+              <div class="volumeHead" ng-click="dealInfo(item.deal_id,item.customer_id, 0)">
+                <span style="color: #337ab7;">{{item.deal_id}}</span>
+              </div>
+              <div class="div-table-col">{{item.pipeline_name}}</div>
+              <div class="div-table-col">{{item.locations_name}}</div>
+              <div class="div-table-col" ng-click="dealInfo(item.deal_id, item.customer_id, 1)">
+                <span style="color: #337ab7;">{{item.customer_id}}</span>
+              </div>
+              <div class="div-table-col">{{item.customer_name}}</div>
+              <div class="div-table-col">{{item.trade_date}}</div>
+              <div class="div-table-col">{{item.beg_date}}</div>
+              <div class="div-table-col">{{item.end_date}}</div>
+              <div class="div-table-col">{{item.market}}</div>
+              <div class="div-table-col">{{item.daily_dth}}</div>
+            </div>
+
+      </div>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div layout="row" layout-align="center center">
+  <div layout="row" layout-align="center center" align="center" class='dealHead' >
+    <div class="dealTableHead">Deal Id</div>
+    <div class="dealTableHead">Pipeline Name</div>
+    <div class="dealTableHead">Location Name</div>
+    <div class="dealTableHead">Customer <br> Id</div>
+    <div class="dealTableHead">Customer <br> Name</div>
+    <div class="dealTableHead">Trade Date</div>
+    <div class="dealTableHead">Begin Date</div>
+    <div class="dealTableHead">End Date</div>
+    <div class="dealTableHead">Market</div>
+    <div class="dealTableHead">Daily Dth</div>
+  </div>
+</div>
+
+  <div id="table-scroll">
+    <div infinite-scroll="dealData.nextPage()"
+        infinite-scroll-distance="1"
+        infinite-scroll-container='"#table-scroll"'>
+      <div layout="row" layout-align="center center" data-ng-repeat="item in dealData.items
+     = (dealData.items | filter:searchDealsOne | unique: 'deal_id') |
+     filter:searchDealsTwo | filter:searchDealsOne | filter:searchDealsTwo |
+     filter: searchDealsThree | filter: searchDealsFour |  unique: 'deal_id' ">
+        <div layout="row" layout-align="center center" class='dealHead' >
+          <div class="dealTable" ng-click="dealInfo(item.deal_id,item.customer_id, 0)">
+            <span style="color: #337ab7;">{{item.deal_id}}</span>
+          </div>
+          <div class="dealTable" >{{item.pipeline_name}}</div>
+          <div class="dealTable">{{item.locations_name}}</div>
+          <div class="dealTable" ng-click="dealInfo(item.deal_id, item.customer_id, 1)">
+            <span style="color: #337ab7;">{{item.customer_id}}</span>
+          </div>
+          <div class="dealTable">{{item.customer_name}}</div>
+          <div class="dealTable">{{item.trade_date}}</div>
+          <div class="dealTable">{{item.beg_date}}</div>
+          <div class="dealTable">{{item.end_date}}</div>
+          <div class="dealTable">{{item.market}}</div>
+          <div class="dealTable">{{item.daily_dth}}</div>
+        </div>
+      </div>
+      <br><br><br><br><br><br><br><br><br>
+      <div layout="row" layout-align="center center">
+        {{dealData.message}}
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+form
+
+  <table style="width:100%">
+    <tr >
+      <th style="text-align: left; width: 20%; ">Code</th>
+      <th style="text-align: left; width: 20%;">Rate</th>
+      <th style="text-align: center; width: 20%;">Term</th>
+      <th style="text-align: left; width: 20%;">Price</th>
+      <th style="text-align: left width: 20%;;">Cap</th>
+    </tr>
+    <tr>
+      <td align="left">31063</td>
+      <td align="left">Index (CIG)</td>
+      <td align="center">1</td>
+      <td align="left">$0.069</td>
+    </tr>
+    <tr>
+      <td align="left">30166</td>
+      <td align="left">Index with Cap</td>
+      <td align="center">1</td>
+      <td align="left">$0.079</td>
+      <td align="left">$0.42</td>
+
+    </tr>
+    <tr>
+      <td align="left"></td>
+      <td align="left">Index with Cap</td>
+      <td align="center">2</td>
+      <td align="left">$0.079</td>
+      <td align="left">$0.399</td>
+    </tr>
+    <tr>
+      <td align="left"></td>
+      <td align="left">Index with Cap</td>
+      <td align="center">3</td>
+      <td align="left">$0.079</td>
+      <td align="left">$0.389</td>
+    </tr>
+    </tr>
+    <tr>
+      <td align="left">31069</td>
+      <td align="left">Fixed Price</td>
+      <td align="center">1</td>
+      <td align="left">$0.390</td>
+    </tr>
+    <tr>
+      <td align="left">Call For Price</td>
+      <td align="left">Fixed Price</td>
+      <td align="center">2</td>
+      <td align="left">$0.370</td>
+    </tr>
+    <tr>
+      <td align="left">Call For Price</td>
+      <td align="left">Fixed Price</td>
+      <td align="center">3</td>
+      <td align="left">$0.360</td>
+    </tr>
+    <tr>
+      <td align="left">31072</td>
+      <td align="left">Managed</td>
+      <td align="center">1</td>
+      <td align="left">June-Sept</td>
+    </tr>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <md-content class="md-padding" layout-xs="row" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column" style="max-width: 100%;">
+      <md-card>
+
+
+        <md-card-content layout="row" layout-align="center center">
+          <div layout="column" style="text-align:center; vertical-align: middle;">
+            <div layout="row" style="border-bottom: thin solid;" layout-align="center center">
+              <div class="volumeHead">Begin Date </div>
+              <div class="volumeHead">Actual volume</div>
+              <div class="volumeHead">Contract volume</div>
+              <div class="volumeHead">Trigger volume</div>
+              <div class="volumeHead">Risk <br> type</div>
+              <div class="volumeHead">Pipline Name</div>
+            </div>
+              <div id="scroll" style="text-align:center; vertical-align: middle;">
+                <div layout="row" ng-repeat="data in volume"
+                style="border-bottom: thin solid; margin-bottom: 1em; margin-top: 1em;">
+                  <div class="volumeHead" >{{data.begDate}}</div>
+                  <div class="volumeHead" >{{data.actual_volume}}</div>
+                  <div class="volumeHead" >{{data.contract_volume}}</div>
+                  <div class="volumeHead" >{{data.trigger_volume}}</div>
+                  <div class="volumeHead" >{{data.risk_types}}</div>
+                  <div class="volumeHead" >{{data.pipeline_name}}</div>
+            </div>
+          </div>
+        </div>
+     </md-card-content>
+   </md-card>
+ </div>
+</md-content>
+
+
+
+
+
+
+
+
+
+
+
+
+<div layout="row" layout-align="center center">
+  <div layout="column" layout-align="center center" class="doc-table">
+    <div>Document Type</div>
+  </div>
+  <div layout="column" layout-align="center center" class="doc-table">
+    <div>Customers Name</div>
+  </div>
+  <div layout="column" layout-align="center center" class="doc-table">
+    <div>Date Created</div>
+  </div>
+  <div layout="column" layout-align="center center" class="doc-table">
+    <div>Account Number</div>
+  </div>
+  <div layout="column" layout-align="center center" class="doc-table">
+    <div>Premise Number</div>
+  </div>
+
+  <div layout="column" layout-align="center center" class="doc-table">
+    <div>Email Address</div>
+  </div>
+</div>
+
+
+
+
+
+<div ng-cloak
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom md-selected="selectedTab">
+      <md-tab label="Finalized">
+        <md-content class="md-padding">
+          <h1 class="md-headline">Finalized Documents</h1>
+          <div class="md-padding" layout="row" layout-wrap layout-align="center center"  >
+            <div layout="row" layout-align="center center" flex="80" flex-sm="100" class="nameBox">
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>Document Type</div>
+              </div>
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>Name</div>
+              </div>
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>Date Created</div>
+              </div>
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>AccountNumber</div>
+              </div>
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>PremiseNumber</div>
+              </div>
+
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>Email Address</div>
+              </div>
+            </div>
+
+            <div class="document-box" layout-align="center center">
+              <div class="md-padding" layout="row" layout-wrap layout-align="center center">
+                <md-card flex="80" flex-sm="100"
+                    ng-repeat="item in searchResults |filter: {finalized: 'true'}  | filter: filterSearchTwo"
+                    style="width:auto">
+                  <md-card-content>
+                    <div layout="row" layout-align="center center">
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <a target="_blank"
+                            href="https://s3-us-west-1.amazonaws.com/woodriver-documents/{{item.id}}/{{item.urlName}}.pdf">
+                          {{item.documentTemplate.name}} </a>
+                      </div>
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.name}}</div>
+                      </div>
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.createdAt}}</div>
+                      </div>
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.values.account}}</div>
+                      </div>
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.values.premiseNum}}</div>
+                      </div>
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.values.emailAddress}}</div>
+                      </div>
+                    </div>
+                  </md-card-content>
+                </md-card>
+              </div>
+            </div>
+          </div>
+        </md-content>
+      </md-tab>
+      <md-tab label="unfinalized">
+        <md-content class="md-padding">
+          <h1 class="md-headline">Unfinalized</h1>
+          <div class="md-padding" layout="row" layout-wrap layout-align="center center">
+            <div layout="row" layout-align="center center" flex="80" flex-sm="100" class="nameBox">
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>Document Type</div>
+              </div>
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>Name</div>
+              </div>
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>Date Created</div>
+              </div>
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>AccountNumber</div>
+              </div>
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>PremiseNumber</div>
+              </div>
+
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>Email Address</div>
+              </div>
+
+              <div layout="column" layout-align="center center" class="doc-table">
+                <div>PhoneNumber</div>
+              </div>
+            </div>
+            <div class="document-box" layout-align="center center">
+              <div class="md-padding" layout="row" layout-wrap layout-align="center center">
+                <md-card flex="80" flex-sm="100"
+                    ng-repeat="item in searchResults  | filter: {finalized: 'false'} | filter: filterSearchTwo"
+                    style="width:auto">
+                  <md-card-content>
+                    <div layout="row" layout-align="center center">
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.documentTemplate.name}}</div>
+                      </div>
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.name}}</div>
+                      </div>
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.createdAt}}</div>
+                      </div>
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.values.account}}</div>
+                      </div>
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.values.premiseNum}}</div>
+                      </div>
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.values.emailAddress}}</div>
+                      </div>
+                      <div layout="column" layout-align="center center" class="doc-table">
+                        <div>{{item.values.phone}}</div>
+                      </div>
+                    </div>
+                  </md-card-content>
+                </md-card>
+              </div>
+            </div>
+        </md-content>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div ng-cloak
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom md-selected="selectedTab">
+      <md-tab label="Finalized">
+        <md-content class="md-padding">
+          <h1 class="md-headline">Finalized Documents</h1>
+          <md-card>
+            <md-content>
+              <md-card-content>
+                <div grid-data grid-options="gridOptions" grid-actions="gridActions">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th sortable="code" class="sortable">
+                          Document Type
+                        </th>
+                        <th sortable="placed" class="sortable">
+                          Name
+                        </th>
+                        <th sortable="purchaseOrderNumber" class="sortable">
+                          Date Created
+                        </th>
+                        <th sortable='total.value' class="sortable">
+                          AccountNumber
+                        </th>
+                        <th sortable='total.value' class="sortable">
+                          PremiseNumber
+                        </th>
+                        <th sortable='total.value' class="sortable">
+                          Email Address
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr grid-item  ng-repeat="item in searchResults |filter: {finalized: 'true'}  | filter: filterSearchTwo" style="width:auto">
+                        <td >
+                          <a target="_blank"
+                          href="https://s3-us-west-1.amazonaws.com/woodriver-documents/{{item.id}}/{{item.urlName}}.pdf">
+                          {{item.documentTemplate.name}} </a>
+                        </td>
+                        <td ng-bind="item.name"></td>
+                        <td ng-bind="item.createdAt"></td>
+                        <td ng-bind="item.values.account"></td>
+                        <td ng-bind="item.values.premiseNum"></td>
+                        <td ng-bind="item.values.emailAddress"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+
+            </md-card-content>
+          </md-card>
+        </md-content>
+      </md-tab>
+      <md-tab label="unfinalized">
+        <md-content class="md-padding">
+          <h1 class="md-headline">Unfinalized</h1>
+          <div class="md-padding" layout="row" layout-wrap layout-align="center center">
+            <md-card>
+              <md-content>
+                <md-card-content>
+
+                </md-card-content>
+              </md-content>
+            </md-tab>
+          </md-tabs>
+        </md-content>
+      </div>
+    </div>

@@ -1,0 +1,64 @@
+<div ng-init="loadData()"></div>
+
+
+<md-card style="height: auto; width: 45%">
+<md-card-content>
+
+<table style="width:90%" >
+<tr>
+<th>Pipeline</th>
+<th>Basis</th>
+<th>Fixed Price	</th>
+<th>Total</th>
+</tr>
+<tr ng-repeat="item in total" ng-click="findPipeData(item[0].pipeline)">
+<td>{{item[0].pipeline}}</td>
+<td>{{item[0].dth}}</td>
+<td>{{item[1].dth}}</td>
+<td>{{item[0].dth - item[1].dth}}</td>
+</tr>
+</table>
+
+</md-card-content>
+</md-card>
+
+
+
+<div ng-repeat="item in groups ">
+
+<div ng-repeat="(key, value) in item | filter: filterName">
+
+{{value.pipeline}}, {{value.month}}, {{value.risk_type}} ,{{value.dth}}
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+  <div id="grid1" ui-grid="gridOptions"></div>
+
+
+
+
+
+
+
+
+  <div layout="row" layout-align="center center">
+    <div class="center-outline" style=" margin-top: 50px; width: 650px">
+      <form name="FindData" ng-submit="getOne(customerData)">
+        <div layout="row" layout-xs="column">
+          <md-input-container flex>
+            <label>Deal Id</label> <input ng-model="customerData.dealId" type="text" name="DealId" required>
+          </md-input-container>
+        <div layout="row" layout-align="space-between center">
+          <md-button style="width: 100%;" type="submit" class="md-raised md-primary">Get Deal</md-button>
+        </div>
+      </form>
+    </div>
+  </div>

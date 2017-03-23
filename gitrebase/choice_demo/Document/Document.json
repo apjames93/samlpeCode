@@ -1,0 +1,105 @@
+{
+  "name": "Document",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true,
+    "KeepHistory": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "values": {
+      "type": "object",
+      "postgresql": {
+        "dataType": "text"
+      }
+    },
+    "templateEngine": {
+      "type": "string"
+    },
+    "templateClosure": {
+      "type": "object",
+      "postgresql": {
+        "dataType": "text"
+      }
+    },
+    "finalized": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "person": {
+      "type": "belongsTo",
+      "model": "Person"
+    },
+    "documentTemplate": {
+      "type": "belongsTo",
+      "model": "DocumentTemplate"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": [
+        "findById",
+        "addValues",
+        "sign",
+        "finalize",
+        "sendCustomerDoc"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW",
+      "property": [
+        "find",
+        "count",
+        "history"
+      ]
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "systemUser",
+      "permission": "ALLOW",
+      "property": [
+        "find",
+        "count",
+        "history"
+      ]
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": [
+        "history"
+      ]
+    }
+  ],
+  "methods": {}
+}

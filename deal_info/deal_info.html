@@ -1,0 +1,97 @@
+<div ng-cloak style="width: 95%;">
+  <md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Deal Details">
+        <md-content class="md-padding" layout-xs="column" layout="row">
+          <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">Pricing</span>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-content layout="row">
+                <div layout="column" layout-align="start">
+                  <div>
+                    <span class="info-class">Index:</span> {{indexData[0].indexName}},
+                    {{indexData[0].indexType}},
+                  </div>
+                  <div>
+                    <span class="info-class">Swing Index:</span> {{indexData[0].swingName}},
+                    {{indexData[0].swingType}},
+                  </div>
+                  <div>
+                    <span class="info-class">Under Premium:</span>
+                    {{indexData[0].underPremium}}
+                  </div>
+                  <div>
+                    <span class="info-class">Over Premium:</span> {{indexData[0].overPremium}}
+                  </div>
+                  <div>
+                    <span class="info-class">Base Margin:</span> {{indexData[0].baseMargin}}
+                  </div>
+                </div>
+              </md-card-content>
+            </md-card>
+          </div>
+          <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">ADDRESS</span>
+                  <div layout="column" layout-align="start">
+                    <div><span class="info-class">bill To:</span> {{billTo[0].address1}},
+                      {{billTo[0].address2}}, {{billTo[0].city}}, {{billTo[0].state}}, {{billTo[0].zip}}
+                    </div>
+                    <div>
+                      <span class="info-class">Service:</span> {{serviceAddress[0].address1}},
+                      {{serviceAddress[0].address2}}, {{serviceAddress[0].city}}, {{serviceAddress[0].state}},
+                      {{serviceAddress[0].zip}}
+                    </div>
+                    <div>
+                      <span class="info-class">Name:</span> {{contact[0].name}}
+                    </div>
+
+                    <div>
+                      <span class="info-class">Email Address:</span> {{contact[0].email}}
+                    </div>
+                    <div>
+                      <span class="info-class">Work Phone:</span> {{contact[0].workPhone}}
+                    </div>
+                    <div>
+                      <span class="info-class">Mobile Phone:</span> {{contact[0].mobilePhone}}
+                    </div>
+                    <div>
+                      <span class="info-class">fax:</span> {{contact[0].fax}}
+                    </div>
+                  </div>
+                </md-card-title-text>
+              </md-card-title>
+              <md-card-content layout="row" layout-align="start"></md-card-content>
+            </md-card>
+          </div>
+
+        </md-content>
+        <!--<md-content >-->
+            <!--<md-card>-->
+              <!--<md-card-title>-->
+                <!--<md-card-title-text>-->
+                  <!--<span class="md-headline">Volume</span>-->
+                <!--</md-card-title-text>-->
+              <!--</md-card-title>-->
+
+              <!--<md-card-content layout="row">-->
+
+                <!--<div ui-grid="gridOptions" class="grid"></div>-->
+
+              <!--</md-card-content>-->
+            <!--</md-card>-->
+        <!--</md-content>-->
+        <div style="height: auto; width: auto;">
+          <div ui-grid="gridOptions" class="grid"></div>
+
+        </div>
+      </md-tab>
+    </md-tabs>
+  </md-content>
+</div>

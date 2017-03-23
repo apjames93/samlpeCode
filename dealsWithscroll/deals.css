@@ -1,0 +1,26 @@
+.ui-grid-cell {
+  text-align: center;
+}
+.table-link {
+  color: #337ab7;
+}
+
+@media (max-width: 2000px) {
+  .dealGrid {
+    width: 90em;
+    height: auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .dealGrid {
+    width: 60em;
+    height: auto;
+  }
+}
+@media (max-width: 600px) {
+  .dealGrid {
+    width: 35em;
+    height: auto;
+  }
+}

@@ -1,0 +1,19 @@
+table {
+  width: 100%;
+}
+th , tr {
+  text-align: center;
+}
+.search {
+  padding-right: 2em;
+  padding-left: 2em;
+}
+md-checkbox.md-checked.green .md-icon {
+  background-color: rgb(43, 105, 33);
+}
+md-input-container:not(.md-input-invalid).md-input-focused label {
+  color: rgb(43, 105, 33);
+}
+md-input-container:not(.md-input-invalid).md-input-focused .md-input {
+   border-color: rgb(43, 105, 33);
+ }

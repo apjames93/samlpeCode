@@ -1,0 +1,457 @@
+<script type="text/ng-template" id="deal_info.tmpl.html">
+  <md-dialog>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>Deal Information</h2>
+          <span flex></span>
+        </div>
+      </md-toolbar>
+      <md-dialog-content style="width:750px; height: 550px; ">
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="Deal">
+            <md-content class="md-padding">
+              <h3 class="md-display-2">Deal</h3>
+              <!-- <div>
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <td>Deal Id</td>
+                      <td>Customer Id</td>
+                      <td>Customer Name</td>
+                      <td> Trade Date</td>
+                      <td>Notes</td>
+                      <td>Evergreen</td>
+                      <td>Market</td>
+                      <td>Commission Rate</td>
+                      <td>Pmt Terms</td>
+                    </tr>
+                  </thead>
+                  <tbody  ng-repeat="deal in item">
+                          <td>{{deal.deal_id}}</td>
+                          <td>{{deal.customer_id}}</td>
+                          <td>{{deal.customer_name}}</td>
+                          <td>{{deal.trade_date}}</td>
+                          <td>{{deal.notes}}</td>
+                          <td>{{deal.evergreen}}</td>
+                          <td>{{deal.market}}</td>
+                          <td>{{deal.comm_rate}}</td>
+                          <td>{{deal.pmt_terms}}</td>
+                        </tr>
+                  </tbody>
+                </table>
+              </div> -->
+              <deal-info item="item"></deal-info>
+            </md-content>
+          </md-tab>
+          <md-tab label="Bill To">
+            <md-content class="md-padding">
+              <h3 class="md-display-2">Bill to</h3>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <td>Address1</td>
+                    <td>Address2</td>
+                    <td>City</td>
+                    <td>State</td>
+                    <td> Zip</td>
+                  </tr>
+                </thead>
+                <tbody  ng-repeat="deal in item">
+                        <td>{{deal.address1}}</td>
+                        <td>{{deal.address2}}</td>
+                        <td>{{deal.city}}</td>
+                        <td>{{deal.state}}</td>
+                        <td>{{deal.zip}}</td>
+                      </tr>
+                </tbody>
+              </table>
+            </md-content>
+          </md-tab>
+          <md-tab label="Services">
+            <md-content class="md-padding">
+              <h3 class="md-display-2">Services</h3>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <td>Address1</td>
+                    <td>Address2</td>
+                    <td>City</td>
+                    <td>State</td>
+                    <td> Zip</td>
+                  </tr>
+                </thead>
+                <tbody  ng-repeat="deal in item">
+                        <td>{{deal.address1}}</td>
+                        <td>{{deal.address2}}</td>
+                        <td>{{deal.city}}</td>
+                        <td>{{deal.state}}</td>
+                        <td>{{deal.zip}}</td>
+                      </tr>
+                </tbody>
+              </table>
+            </md-content>
+          </md-tab>
+          <md-tab label="Contact">
+            <md-content class="md-padding">
+              <h3 class="md-display-2">Contact</h3>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Email Address</td>
+                    <td>Work Phone</td>
+                    <td>Mobile Phone</td>
+                    <td>Fax</td>
+                  </tr>
+                </thead>
+                <tbody  ng-repeat="deal in item">
+                        <td>{{deal.name}}</td>
+                        <td>{{deal.email_address}}</td>
+                        <td>{{deal.work_phone}}</td>
+                        <td>{{deal.mobile_phone}}</td>
+                        <td>{{deal.fax}}</td>
+                      </tr>
+                </tbody>
+              </table>
+            </md-content>
+          </md-tab>
+          <md-tab label="Deal Details and Volumes">
+            <md-content class="md-padding">
+              <h3 class="md-display-2">Deal Details and Volumes</h3>
+              <table class="table table-bordered table-striped"
+              ng-repeat="deal in item">
+                  <tr>
+                    <th>Index</th>
+                    <td>{{deal.locations_name}}</td>
+                  </tr>
+                  <tr>
+                    <th>Index Premium</th>
+                    <td>{{deal.index_premium}}</td>
+                  </tr>
+                  <tr>
+                    <th>Swing Index</th>
+                    <td>{{deal.swing_index_id}}</td>
+                  </tr>
+                  <tr>
+                    <th>Under Premium</th>
+                    <td>{{deal.under_premium}}</td>
+                  </tr>
+                  <tr>
+                    <th>Over Premium</th>
+                    <td>{{deal.over_premium}}</td>
+                  </tr>
+                  <tr>
+                    <th>Daily Volume</th>
+                    <td>{{deal.daily_volume}}</td>
+                  </tr>
+                  <tr>
+                    <th>Fuel Percentage</th>
+                    <td>{{deal.fuel_percentage}}</td>
+                  </tr>
+                  <tr>
+                    <th>Utility Id</th>
+                    <td>{{deal.utility_id}}</td>
+                  </tr>
+                  <tr>
+                    <th>Base Margin</th>
+                    <td>{{deal.base_margin}}</td>
+                  </tr>
+                  <tr>
+                    <th>Transport Cost</th>
+                    <td>{{deal.transport_cost}}</td>
+                  </tr>
+                  <tr>
+                    <th>Pipeline</th>
+                    <td>{{deal.pipeline_name}}</td>
+                  </tr>
+                  <tr>
+                    <th>Delivery Point</th>
+                    <td>{{deal.delivery_point}}</td>
+                  </tr>
+                  <tr>
+                    <th>Pipe Commodity</th>
+                    <td>{{deal.pipe_commodity}}</td>
+                  </tr>
+                  <tr>
+                    <th>Utility Billed</th>
+                    <td>{{deal.utility_billed}}</td>
+                  </tr>
+                  <tr>
+                    <th>Premise Number</th>
+                    <td>{{deal.premise_number}}</td>
+                  </tr>
+                  <tr>
+                    <th>Account Number</th>
+                    <td>{{deal.account_number}}</td>
+                  </tr>
+
+                  <tr>
+                    <th>Incremental Margin</th>
+                    <td>{{deal.incremental_margin}}</td>
+                  </tr>
+                  <tr>
+                    <th>Trigger</th>
+                    <td>{{deal.trigger}}</td>
+                  </tr>
+                  <tr>
+                    <th>Risk Type</th>
+                    <td>{{deal.risk_type_name}}</td>
+                  </tr>
+                  <tr>
+                    <th>Offset Supply Id</th>
+                    <td>{{deal.offset_supply_id}}</td>
+                  </tr>
+                  <tr>
+                    <th>MDQ</th>
+                    <td>{{deal.mdq}}</td>
+                  </tr>
+                  <tr>
+                    <th>Discount</th>
+                    <td>{{deal.discount}}</td>
+                  </tr>
+                  <tr>
+                    <th>Segment</th>
+                    <td>{{deal.segment}}</td>
+                  </tr>
+                  <tr>
+                    <th>Down Stream</th>
+                    <td>{{deal.down_stream}}</td>
+                  </tr>
+                  <tr>
+                    <th>From Sales</th>
+                    <td>{{deal.from_sales}}</td>
+                  </tr>
+                  <tr>
+                    <th>RFP</th>
+                    <td>{{deal.rfp}}</td>
+                  </tr>
+                  <tr>
+                    <th>Service Id</th>
+                    <td>{{deal.customer_id}}</td>
+                  </tr>
+                  <tr>
+                    <th>Supply Fee</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Bill Code</th>
+                    <td>{{deal.bill_code}}</td>
+                  </tr>
+                  <tr>
+                    <th>Primary</th>
+                    <td>{{deal.primary}}</td>
+                  </tr>
+                  <tr>
+                    <th>Franchise Fee</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Calc Override</th>
+                    <td>{{deal.calc_override}}</td>
+                  </tr>
+                  <tr>
+                    <th>Fuel</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Commodity</th>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th>Rolled Over</th>
+                    <td>{{deal.rolled_ind}}</td>
+                  </tr>
+                  <tr>
+                    <th>Location</th>
+                    <td>{{deal.locations_name}}</td>
+                  </tr>
+                  <tr>
+                    <th>Pathed</th>
+                    <td>{{deal.pathed}}</td>
+                  </tr>
+              </table>
+            </md-content>
+          </md-tab>
+          <md-tab label="Fees">
+            <md-content class="md-padding">
+              <h3 class="md-display-3">Fees</h3>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <td>Begin Date</td>
+                    <td>End Date</td>
+                    <td>Contract Volume</td>
+                    <td>Actual Volume</td>
+                  </tr>
+                </thead>
+                <tbody  ng-repeat="deal in item">
+                        <td>{{deal.beg_date}}</td>
+                        <td>{{deal.end_date}}</td>
+                        <td>{{deal.contract_volume}} 11111111</td>
+                        <td>{{deal.actual_volume}}1111111</td>
+                      </tr>
+                </tbody>
+              </table>
+                <table class="table table-bordered table-striped" ng-repeat="deal in item">
+                    <tr>
+                        <th></th>
+                        <th>Charge</th>
+                        <th>Discription</th>
+                    </tr>
+                    <tr>
+                        <th>Fee 1</th>
+                        <td> 666 </td>
+                        <td>{{deal.fee_one_discription}}</td>
+                    </tr>
+                    <tr>
+                        <th>Fee 2</th>
+                        <td> 666 </td>
+                        <td>{{deal.fee_two_discription}}</td>
+                    </tr>
+                    <tr>
+                        <th>Fee 3</th>
+                        <td> 666 </td>
+                        <td>{{deal.fee_three_discription}}</td>
+                    </tr>
+                    <tr>
+                        <th>Fee 4</th>
+                        <td> 666 </td>
+                        <td>{{deal.fee_four_discription}}</td>
+                    </tr>
+                    <tr>
+                        <th>Fee 5</th>
+                        <td> 666 </td>
+                        <td>{{deal.fee_five_discription}}</td>
+                    </tr>
+                    <tr>
+                        <th>Fee 6</th>
+                        <td> 666 </td>
+                        <td>{{deal.fee_six_discription}}</td>
+                    </tr>
+                    <tr>
+                        <th>Fee 7</th>
+                        <td> 666 </td>
+                        <td>{{deal.fee_seven_discription}}</td>
+                    </tr>
+                    <tr>
+                        <th>Fee 8</th>
+                        <td> 666 </td>
+                        <td>{{deal.fee_eight_discription}}</td>
+                    </tr>
+                </table>
+            </md-content>
+          </md-tab>
+        </md-tabs>
+      </md-dialog-content>
+  </md-dialog>
+</script>
+<script type="text/ng-template" id="customer_info.tmpl.html">
+  <md-dialog>
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2>Customer Information</h2>
+          <span flex></span>
+        </div>
+      </md-toolbar>
+      <md-dialog-content style="width:750px; height: 550px;">
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="Customer">
+            <md-content class="md-padding">
+              <h3 class="md-display-2">Customer</h3>
+              <div>
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <td>Customer Id</td>
+                      <td>Name</td>
+                      <td>Dealmaker</td>
+                      <td> Named Insured</td>
+                      <td>ACH Account</td>
+                      <td>ACH Routing</td>
+                      <td>Group Id</td>
+                      <td>Group Fee</td>
+                      <td>Aggregate</td>
+                      <td>Wholesale</td>
+                      <td>Notes</td>
+                    </tr>
+                  </thead>
+                  <tbody  ng-repeat="deal in item">
+                          <td>{{deal.customer_id}}</td>
+                          <td>{{deal.customer_name}}</td>
+                          <td>{{deal.dealmakers_name}}</td>
+                          <td>{{deal.named_insured}}</td>
+                          <td>{{deal.ach_account}}</td>
+                          <td>{{deal.ach_routing}}</td>
+                          <td>{{deal.group_id}}</td>
+                          <td>{{deal.group_fee}}</td>
+                          <td>{{deal.aggregate}}</td>
+                          <td>{{deal.wholesale}}</td>
+                          <td>{{deal.notes}}</td>
+                        </tr>
+                  </tbody>
+                </table>
+              </div>
+            </md-content>
+          </md-tab>
+          <md-tab label="Contact(s)">
+            <md-content class="md-padding">
+              <h3 class="md-display-2">Contact(s)</h3>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <td>Contact Id</td>
+                    <td>Contact Name</td>
+                    <td>Email Address</td>
+                    <td>Work Phone</td>
+                    <td>Mobile Phone</td>
+                    <td>Fax</td>
+                  </tr>
+                </thead>
+                <tbody  ng-repeat="deal in item">
+                        <td>{{deal.contact_id}}</td>
+                        <td>{{deal.name}}</td>
+                        <td>{{deal.email_address}}</td>
+                        <td>{{deal.work_phone}}</td>
+                        <td>{{deal.mobile_phone}}</td>
+                        <td>{{deal.fax}}</td>
+                      </tr>
+                </tbody>
+              </table>
+            </md-content>
+          </md-tab>
+          <md-tab label="Address(es)">
+            <md-content class="md-padding">
+              <h3 class="md-display-2">Address(es)</h3>
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <td>Address id</td>
+                    <td>Tax Exempt</td>
+                    <td>Exempt Code</td>
+                    <td> Address 1</td>
+                    <td>Address 2</td>
+                    <td>City</td>
+                    <td>State</td>
+                    <td>Zip</td>
+                    <td>Country</td>
+                  </tr>
+                </thead>
+                <tbody  ng-repeat="deal in item">
+                        <td>{{deal.address_id}}</td>
+                        <td>{{deal.tax_exempt}}</td>
+                        <td>{{deal.exempt_code}}</td>
+                        <td>{{deal.address1}}</td>
+                        <td>{{deal.address2}}</td>
+                        <td>{{deal.city}}</td>
+                        <td>{{deal.state}}</td>
+                        <td>{{deal.zip}}</td>
+                        <td>{{deal.country}}</td>
+                      </tr>
+                </tbody>
+              </table>
+            </md-content>
+          </md-tab>
+        </md-tabs>
+      </md-dialog-content>
+  </md-dialog>
+</script>

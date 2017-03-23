@@ -1,0 +1,19 @@
+<div flex-xs flex-gt-xs="100" layout="column">
+  <md-card style="height: 35em;">
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline" style="margin-bottom: 2em;">Volume</span>
+        <div layout="column" layout-align="center center">
+          <div infinite-scroll="dealData.nextPage()" infinite-scroll-distance="1"
+          infinite-scroll-container='".ui-grid-viewport"'>
+          <div layout="row" layout-align="center center" data-ng-repeat="item in dealData.items
+          = (dealData.items | filter:searchDealsOne | unique: 'deal_id')"></div>
+          <div style="width: 100%; height: 100%"  >
+            <div ui-grid="gridOptionDeal" class="dealGrid"></div>
+          </div>
+        </div>
+      </div>
+    </md-card-title-text>
+  </md-card-title>
+  </md-card>
+</div>

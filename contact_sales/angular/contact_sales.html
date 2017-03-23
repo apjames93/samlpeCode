@@ -1,0 +1,53 @@
+<div layout="row" layout-align="center center">
+  <div class="center-outline" style=" margin-top: 50px; width: 650px">
+    <form name="contactForm" ng-submit="sendEmail(customerData , gRecaptchaResponse)">
+      <img src="/assets/logo sized.png" style="width: 300px; margin-bottom: 20px;"> <br>
+      <div layout="row" layout-xs="column">
+        <md-input-container flex>
+          <label>Email Address</label> <input ng-model="customerData.email" type="email" name="email" required
+            autofocus>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Phone Number</label> <input ng-model="customerData.phoneNumber" type="text" name="phoneNumber"
+            required>
+        </md-input-container>
+      </div>
+      <div layout="row" layout-xs="column">
+        <md-input-container flex>
+          <label>First Name</label> <input ng-model="customerData.firstName" type="text" name="firstName" required>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Last Name</label> <input ng-model="customerData.lastName" type="text" name="lastName" required>
+        </md-input-container>
+      </div>
+      <div layout-gt-sm="row">
+        <md-input-container flex class="md-block">
+          <label>Address</label> <input ng-model="customerData.address" type="text" name="address" required>
+        </md-input-container>
+      </div>
+      <div layout-gt-sm="row">
+        <md-input-container flex class="md-block">
+          <label>subject</label> <textarea rows="4" cols="50" ng-model="customerData.subject" name="subject"
+            placeholder="have any question comments concerns? leave them here.">
+            </textarea>
+        </md-input-container>
+      </div>
+      <div>
+        <div layout="row" flex>
+          <md-input-container flex>
+            <md-checkbox class="green" ng-model="customerData.allowcontact" required>
+              <span style="text-decoration: underline;">allow us to contact you</span>
+            </md-checkbox>
+          </md-input-container>
+          <md-input-container flex>
+            <label></label>
+            <no-captcha ng-model="recaptcha" g-recaptcha-response="gRecaptchaResponse" theme="light"></no-captcha>
+          </md-input-container>
+        </div>
+      </div>
+      <div layout="row" layout-align="space-between center">
+        <md-button style="width: 100%;" type="submit" class="md-raised md-primary">Send email</md-button>
+      </div>
+    </form>
+  </div>
+</div>
